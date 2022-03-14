@@ -1,6 +1,6 @@
 {
-  "name": "rive-react",
-  "version": "0.0.31",
+  "name": "@zplata/r-react-test",
+  "version": "0.0.32",
   "description": "React wrapper around the rive-js library",
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/rive-app/rive-react#readme",
   "dependencies": {
-    "@rive-app/canvas": "1.0.18"
+    "@rive-app/webgl": "1.0.23"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0"
