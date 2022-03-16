@@ -1,7 +1,12 @@
 const fs = require('fs');
 const path = process.argv[3];
 const package = require(path + '/package.json');
-const versions = JSON.parse(process.argv[2].trim().replace(/\'/g, '"'));
+let versions = process.argv[2];
+// If the package only has one version published, its format needs some tweaking
+if (versions.indexOf('[') !== 0) {
+  versions = `['${versions}']`;
+}
+versions = JSON.parse(versions.trim().replace(/\'/g, '"'));
 const current = package.version;
 
 const latest = versions[versions.length - 1];
