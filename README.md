@@ -4,7 +4,7 @@
 
 # Rive React
 
-React Runtimes for [Rive](https://rive.app).
+React Runtime for [Rive](https://rive.app).
 
 A wrapper around [Rive.js](https://github.com/rive-app/rive-wasm), providing full control over the js runtime while making it super simple to use in React applications.
 
