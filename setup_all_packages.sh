@@ -14,7 +14,8 @@ for dir in ./npm/*; do
     repo_name=`echo $dir | sed 's:.*/::' | sed 's/_/-/g'`
     echo Setting package.json on npm packages
     echo $repo_name
-    sh ../../setup_package.sh $repo_name
+    ../../setup_package.sh $repo_name
+    echo Finished setting up package.json
     popd > /dev/null
 done
 
