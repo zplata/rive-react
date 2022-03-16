@@ -33,5 +33,5 @@ jobs:
         run: ./build.sh
       - name: Try Publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./publish_all.sh --access public
