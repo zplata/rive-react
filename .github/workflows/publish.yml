@@ -22,7 +22,7 @@ jobs:
       - name: Copy package jsons
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: ./setup_app_packages.sh
+        run: ./setup_all_packages.sh
       - name: Bump Version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
