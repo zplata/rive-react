@@ -1,9 +1,5 @@
 name: Publish to NPM
-on:
-  pull_request:
-    types: [closed]
-    branches:
-      - main
+on: push
 jobs:
   merge_job:
     runs-on: ubuntu-latest
@@ -23,3 +19,19 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+      - name: Copy package jsons
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: ./setup_app_packages.sh
+      - name: Bump Version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: ./bump_all_versions.sh
+      - name: Separate builds
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: ./build.sh
+      - name: Try Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: ./publish_all.sh --access public
