@@ -11,6 +11,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install Modules
         run: npm install
+      - name: Get global release-it
+        run: npm i -g release-it
       - name: Run type check
         run: npm run types:check
       - name: Run Linter
@@ -27,7 +29,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: ./scripts/bump_all_versions.sh
+      - name: Configure git
+        run: |
+          git config user.email "plata.zach@gmail.com"
+          git config user.name "Zach Plata"
       - name: Try Publishing separate react outputs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./scripts/publish_all.sh --access public
+        run: npm run release && ./scripts/publish_all.sh --access public
