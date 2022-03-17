@@ -31,8 +31,8 @@ jobs:
         run: ./scripts/bump_all_versions.sh
       - name: Configure git
         run: |
-          git config --local user.email "plata.zach@gmail.com"
-          git config --local user.name {{ github.actor }}
+          git config --local user.email 'plata.zach@gmail.com'
+          git config --local user.name ${{ github.actor }}
       - name: Authenticate with registry
         run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
       - name: Try Publishing separate react outputs
