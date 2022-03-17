@@ -18,20 +18,16 @@ jobs:
       - name: Run Tests
         run: npm test
       - name: Build
-        run: npm run build
-      - name: Copy package jsons
+        run: ./scripts/build.sh
+      - name: Copy package jsons to separate react outputs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: ./setup_all_packages.sh
-      - name: Bump Version
+        run: ./scripts/setup_all_packages.sh
+      - name: Bump Versions of react outputs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: ./bump_all_versions.sh
-      - name: Separate builds
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: ./build.sh
-      - name: Try Publish
+        run: ./scripts/bump_all_versions.sh
+      - name: Try Publishing separate react outputs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./publish_all.sh --access public
+        run: ./scripts/publish_all.sh --access public
