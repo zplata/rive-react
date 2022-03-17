@@ -37,5 +37,5 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
       - name: Try Publishing separate react outputs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TEMP_GH_TOKEN }}
         run: npm run release && ./scripts/publish_all.sh --access public
