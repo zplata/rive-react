@@ -1,6 +1,6 @@
 {
   "name": "@zplata/rive-react",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "TEST - Don't use this. React wrapper around the rive-js library",
   "main": "dist/index.js",
   "typings": "dist/types/index.d.ts",
