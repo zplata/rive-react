@@ -6,7 +6,7 @@ set -e
 if [ ! -f ./dist/index.js ]; then
   npm run build
   cp -r ./dist ./npm/rive-react-webgl
-  cp -r ./dist ../npm/rive-react-canvas
+  cp -r ./dist ./npm/rive-react-canvas
 else
   cp -r ./dist ./npm/rive-react-webgl
   cp -r ./dist ./npm/rive-react-canvas
